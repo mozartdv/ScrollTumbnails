@@ -71,6 +71,7 @@ text-align:center;
 vertical-align:middle;
 line-height:100px;
 background-color:#ffffff;
+cursor:pointer;
 }
 
 span.right {
@@ -83,6 +84,8 @@ text-align:center;
 vertical-align:middle;
 line-height:100px;
 background-color:#ffffff;
+cursor:pointer;
+
 }
 
 div.container_img {

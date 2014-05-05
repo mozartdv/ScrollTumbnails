@@ -3,8 +3,8 @@
 }
 
 <div class="container_scroll">
-    <span class="left"><</span>
-    <span class="right">></span>
+    <span id="scroll_left" class="left"><</span>
+    <span id="scroll_right" class="right">></span>
     <div class="container_img">
         <a href="#">
             <img src="~/Content/Img/2100_5.jpg" />
@@ -61,18 +61,3 @@
     </div>
 </div>
 
-<script>
-    
-
-    $(function () {
-        var sum = 0;
-        $("a").each(function () {
-            //console.log(index + ": " + $(this).text());
-            sum = sum + $(this).width();
-        });
-        $("div.container_img").width(sum);
-        console.log(sum);
-
-
-    });
-</script>
