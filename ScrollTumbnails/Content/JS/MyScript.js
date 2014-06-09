@@ -1,6 +1,7 @@
 ﻿var sum = 0;
 var dWidth = 0;
 var dWidthTemp = 0;
+var firstimagegallery;
 $(function () {
     //$("#scroll_left").on("click", click_left);
     //$("#scroll_right").on("click", click_right);
@@ -8,10 +9,20 @@ $(function () {
 
 $(window).load(function () {
     
-    $("a").each(function () {
+    $("div.container_img > a").each(function () {
         //console.log(index + ": " + $(this).text());
         sum = sum + $(this).width();
+
+        $(this).find('img').on("click", click_image);
+
     });
+
+    var position = $("div.container_gallery").position();
+    console.log(position.top);
+    if (position.top < 450) {
+        $("div.container_gallery").css("top", "150px");
+        $("div.container_gallery").css("margin-top", "0px");
+    }
 
     $("div.container_img").width(sum);
     console.log(sum);
@@ -23,8 +34,21 @@ $(window).load(function () {
         $("#scroll_left").on("click", click_left);
         $("#scroll_right").on("click", click_right);
     }
+
+    //выбрать первый источник из картинки
+
+    var imageindiv = $(".container_img").find('img:first');
+    var imgsrc = imageindiv[0].src;
+    firstimagegallery = $(".container_gallery").find('img');
+    firstimagegallery[0].src = imgsrc;
+    console.log(imgsrc);
     });
 
+function click_image() {
+
+    firstimagegallery[0].src = this.src;
+    console.log("нажата картинка"+this.src);
+};
 function click_left() {
     console.log("Нажата влево");
     //$(".container_img").animate({ "margin-left": "+=100px" }, "slow");
